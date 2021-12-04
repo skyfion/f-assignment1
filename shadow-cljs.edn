@@ -5,7 +5,8 @@
  :dependencies
  [[reagent "0.9.1"]
   [re-frame "0.12.0"]
-  [binaryage/devtools "0.9.10"]]
+  [binaryage/devtools "0.9.10"]
+  [day8.re-frame/http-fx "0.2.3"]]
 
  :nrepl        {:port 3333}
 
@@ -16,5 +17,6 @@
    :output-dir "public/js"
    :asset-path "/js"
    :devtools {:http-root   "public"
-              :http-port   3000}}}}
+              :http-port   3000
+              :preloads     [devtools.preload]}}}}
 

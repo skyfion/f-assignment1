@@ -1,7 +1,8 @@
 (ns core
   (:require [re-frame.core :as re-frame]
             [reagent.core :as reagent]
-            [views :as views]))
+            [views :as views]
+            [events]))
 
 (defn ^:export init
   []

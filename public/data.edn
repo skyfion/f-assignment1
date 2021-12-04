@@ -1,0 +1,160 @@
+[{:id 1,
+  :title "cubilia curae mauris viverra",
+  :description
+  "Maecenas tristique, est et tempus semper, est quam pharetra magna, ac consequat metus sapien ut nunc. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Mauris viverra diam vitae quam. Suspendisse potenti.",
+  :building "226 Ilene Park",
+  :status "done",
+  :category "cleaning",
+  :image "https://thisartworkdoesnotexist.com/"}
+ {:id 2,
+  :title "mi integer ac neque",
+  :description
+  "Quisque id justo sit amet sapien dignissim vestibulum. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nulla dapibus dolor vel est. Donec odio justo, sollicitudin ut, suscipit a, feugiat et, eros.",
+  :building "19872 Brentwood Lane",
+  :status "done",
+  :category "electricity",
+  :image "https://thisartworkdoesnotexist.com/"}
+ {:id 3,
+  :title "id nisl venenatis lacinia",
+  :description
+  "Morbi non lectus. Aliquam sit amet diam in magna bibendum imperdiet. Nullam orci pede, venenatis non, sodales sed, tincidunt eu, felis.",
+  :building "8101 Mesta Point",
+  :status "todo",
+  :category "cleaning",
+  :image "https://thisartworkdoesnotexist.com/"}
+ {:id 4,
+  :title "rhoncus mauris enim leo",
+  :description
+  "Fusce posuere felis sed lacus. Morbi sem mauris, laoreet ut, rhoncus aliquet, pulvinar sed, nisl. Nunc rhoncus dui vel sem.",
+  :building "0338 Forest Avenue",
+  :status "done",
+  :category "electricity",
+  :image "https://thisartworkdoesnotexist.com/"}
+ {:id 5,
+  :title "fringilla rhoncus mauris enim",
+  :description
+  "Pellentesque at nulla. Suspendisse potenti. Cras in purus eu magna vulputate luctus.",
+  :building "3 Declaration Road",
+  :status "in-progress",
+  :category "security",
+  :image "https://thisartworkdoesnotexist.com/"}
+ {:id 6,
+  :title "at dolor quis odio",
+  :description
+  "Quisque id justo sit amet sapien dignissim vestibulum. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nulla dapibus dolor vel est. Donec odio justo, sollicitudin ut, suscipit a, feugiat et, eros.",
+  :building "91669 Shoshone Junction",
+  :status "in-progress",
+  :category "security",
+  :image "https://thisartworkdoesnotexist.com/"}
+ {:id 7,
+  :title "vestibulum eget vulputate ut",
+  :description
+  "Vestibulum quam sapien, varius ut, blandit non, interdum in, ante. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Duis faucibus accumsan odio. Curabitur convallis.",
+  :building "0374 Loftsgordon Crossing",
+  :status "done",
+  :category "cleaning",
+  :image "https://thisartworkdoesnotexist.com/"}
+ {:id 8,
+  :title "id mauris vulputate elementum",
+  :description
+  "Quisque porta volutpat erat. Quisque erat eros, viverra eget, congue eget, semper rutrum, nulla. Nunc purus.",
+  :building "200 Luster Circle",
+  :status "done",
+  :category "electricity",
+  :image "https://thisartworkdoesnotexist.com/"}
+ {:id 9,
+  :title "est donec odio justo",
+  :description
+  "Duis bibendum, felis sed interdum venenatis, turpis enim blandit mi, in porttitor pede justo eu massa. Donec dapibus. Duis at velit eu est congue elementum.",
+  :building "9533 Waubesa Crossing",
+  :status "todo",
+  :category "temperature",
+  :image "https://thisartworkdoesnotexist.com/"}
+ {:id 10,
+  :title "non velit donec diam",
+  :description
+  "Duis bibendum. Morbi non quam nec dui luctus rutrum. Nulla tellus.",
+  :building "2 Maple Wood Alley",
+  :status "done",
+  :category "security",
+  :image "https://thisartworkdoesnotexist.com/"}
+ {:id 11,
+  :title "vulputate nonummy maecenas tincidunt",
+  :description
+  "Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vivamus vestibulum sagittis sapien. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.",
+  :building "6729 Vera Place",
+  :status "todo",
+  :category "temperature",
+  :image "https://thisartworkdoesnotexist.com/"}
+ {:id 12,
+  :title "quam sollicitudin vitae consectetuer",
+  :description
+  "Duis aliquam convallis nunc. Proin at turpis a pede posuere nonummy. Integer non velit.",
+  :building "23 Blaine Court",
+  :status "todo",
+  :category "temperature",
+  :image "https://thisartworkdoesnotexist.com/"}
+ {:id 13,
+  :title "dis parturient montes nascetur",
+  :description
+  "Quisque porta volutpat erat. Quisque erat eros, viverra eget, congue eget, semper rutrum, nulla. Nunc purus.",
+  :building "396 Sheridan Circle",
+  :status "in-progress",
+  :category "security",
+  :image "https://thisartworkdoesnotexist.com/"}
+ {:id 14,
+  :title "malesuada in imperdiet et",
+  :description
+  "Phasellus in felis. Donec semper sapien a libero. Nam dui.",
+  :building "80008 Gateway Park",
+  :status "todo",
+  :category "electricity",
+  :image "https://thisartworkdoesnotexist.com/"}
+ {:id 15,
+  :title "in leo maecenas pulvinar",
+  :description
+  "Integer tincidunt ante vel ipsum. Praesent blandit lacinia erat. Vestibulum sed magna at nunc commodo placerat.",
+  :building "741 Tennyson Plaza",
+  :status "todo",
+  :category "temperature",
+  :image "https://thisartworkdoesnotexist.com/"}
+ {:id 16,
+  :title "dolor morbi vel lectus",
+  :description
+  "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Proin risus. Praesent lectus.",
+  :building "009 Spenser Alley",
+  :status "in-progress",
+  :category "cleaning",
+  :image "https://thisartworkdoesnotexist.com/"}
+ {:id 17,
+  :title "sed tincidunt eu felis",
+  :description
+  "Proin eu mi. Nulla ac enim. In tempor, turpis nec euismod scelerisque, quam turpis adipiscing lorem, vitae mattis nibh ligula nec sem.",
+  :building "31 Forest Dale Avenue",
+  :status "done",
+  :category "temperature",
+  :image "https://thisartworkdoesnotexist.com/"}
+ {:id 18,
+  :title "nibh fusce lacus purus",
+  :description
+  "Curabitur in libero ut massa volutpat convallis. Morbi odio odio, elementum eu, interdum eu, tincidunt in, leo. Maecenas pulvinar lobortis est.",
+  :building "54085 Westridge Avenue",
+  :status "done",
+  :category "security",
+  :image "https://thisartworkdoesnotexist.com/"}
+ {:id 19,
+  :title "non interdum in ante",
+  :description
+  "Duis bibendum, felis sed interdum venenatis, turpis enim blandit mi, in porttitor pede justo eu massa. Donec dapibus. Duis at velit eu est congue elementum.",
+  :building "4 Montana Road",
+  :status "in-progress",
+  :category "cleaning",
+  :image "https://thisartworkdoesnotexist.com/"}
+ {:id 20,
+  :title "pharetra magna vestibulum aliquet",
+  :description
+  "Aliquam quis turpis eget elit sodales scelerisque. Mauris sit amet eros. Suspendisse accumsan tortor quis turpis.",
+  :building "2 Springs Court",
+  :status "todo",
+  :category "electricity",
+  :image "https://thisartworkdoesnotexist.com/"}]
