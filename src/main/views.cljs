@@ -4,6 +4,8 @@
             [clojure.string :as str]
             [reagent.core :as reagent]))
 
+(def categories ["cleaning" "security" "electricity" "temperature"])
+
 (defn input-form-group
   [title state]
   [:div.form-group
@@ -50,8 +52,7 @@
            [input-form-group "Description" (reagent/cursor model [:description])]
            [input-form-group "Building" (reagent/cursor model [:building])]
            ; category
-           [select-form-group "Category"
-            ["cleaning" "security" "electricity" "temperature"]
+           [select-form-group "Category" categories
             (reagent/cursor model [:category])]]]
          [:div.modal-footer
           [:button.btn.btn-secondary
@@ -64,18 +65,36 @@
                          (close-fn))}
            "Add"]]]]])))
 
+(defn btn-category
+  [title active?]
+  [:button.btn.btn-primary
+   {:class    [(when-not active? :active)]
+    :on-click #(re-frame/dispatch [:category-filter title])}
+   title])
+
+(defn filter-category
+  []
+  (let [filter-category (re-frame/subscribe [:category-filter])]
+    [:div.btn-group.btn-group-sm.mr-3
+     (doall
+       (for [c categories]
+         ^{:key (hash c)} [btn-category c (get @filter-category c)]))]))
+
 (defn nav-bar
   []
   [:div.navbar.box-shadow.bg-white
    [:div.container.d-flex.justify-content-between
     [:a.navbar-brand.d-flex.align-items-center "Issues"]
-    [:button.navbar-toggler
-     {:on-click #(re-frame/dispatch [:show-modal true])}
-     [:span.ion-plus-round]]]])
+    [:div
+     [filter-category]
+     [:button.navbar-toggler
+      {:on-click #(re-frame/dispatch [:show-modal true])}
+      [:span.ion-plus-round]]]]])
 
 (defn dashboard-card [{:keys [id title building category status]}]
   [:div.card.mb-4.shadow-sm.rounded.bg-white
-   {:draggable   true
+   {:style {:cursor :grab}
+    :draggable   true
     :onDragStart #(.setData (.-dataTransfer %) "id" id)
     :data-key    id}
    [:div.card-body
@@ -84,7 +103,8 @@
     [:div.text-secondary "Category: " category]
     [:div.text-secondary "Issue id: #" id ", status: " status]]])
 
-(defn dashboard-column [title status cards]
+(defn dashboard-column
+  [title status cards]
   [:div.col-md-4
    {:onDrop     (fn [e]
                   (.preventDefault e)
@@ -102,7 +122,7 @@
      (when @show-modal? [modal])
      [nav-bar]
      [:div.container-fluid
-      (let [{:keys [in-progress done todo]} @(re-frame/subscribe [:issues])]
+      (let [{:keys [in-progress done todo]} @(re-frame/subscribe [:issues-model])]
         [:div.row
          [dashboard-column "Todo" :todo todo]
          [dashboard-column "In progress" :in-progress in-progress]

@@ -9,9 +9,16 @@
 (re-frame/reg-sub
   :issues
   (fn [db _]
-    (->> db
-         :issues
+    (-> db :issues)))
+
+(re-frame/reg-sub
+  :issues-model
+  :<- [:category-filter]
+  :<- [:issues]
+  (fn [[categories issues] _]
+    (->> issues
          (vals)
+         (filter #(not (get categories (:category %))))
          (group-by :status))))
 
 (re-frame/reg-event-db
@@ -34,6 +41,16 @@
   :show-modal
   (fn [db _]
     (-> db :show-modal?)))
+
+(re-frame/reg-event-db
+  :category-filter
+  (fn [db [_ category]]
+    (update-in db [:category-filter category] not)))
+
+(re-frame/reg-sub
+  :category-filter
+  (fn [db _]
+    (-> db :category-filter)))
 
 (re-frame/reg-event-fx
   :initialise-db
