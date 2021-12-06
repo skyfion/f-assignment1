@@ -15,10 +15,17 @@
   :issues-model
   :<- [:category-filter]
   :<- [:issues]
-  (fn [[categories issues] _]
+  :<- [:search-term]
+  (fn [[categories issues search-term] _]
     (->> issues
          (vals)
-         (filter #(not (get categories (:category %))))
+         (filter (fn [v]
+                   (or (every? false? (vals categories))
+                       (get categories (:category v)))))
+         (filter (fn [v]
+                   (or (str/blank? search-term)
+                       (str/includes? (str/lower-case (:title v))
+                                      (str/lower-case search-term)))))
          (group-by :status))))
 
 (re-frame/reg-event-db
@@ -51,6 +58,16 @@
   :category-filter
   (fn [db _]
     (-> db :category-filter)))
+
+(re-frame/reg-sub
+  :search-term
+  (fn [db _]
+    (-> db :search-term)))
+
+(re-frame/reg-event-db
+  :search-term
+  (fn [db [_ term]]
+    (assoc db :search-term term)))
 
 (re-frame/reg-event-fx
   :initialise-db

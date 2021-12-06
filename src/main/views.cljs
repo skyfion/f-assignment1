@@ -45,7 +45,7 @@
          [:div.modal-header
           [:h5.modal-title "Add issue"]
           [:button.close {:on-click close-fn}
-           [:span.ion-close-round]]]
+           [:span "×"]]]
          [:div.modal-body
           [:form
            [input-form-group "Title" (reagent/cursor model [:title])]
@@ -68,7 +68,7 @@
 (defn btn-category
   [title active?]
   [:button.btn.btn-primary
-   {:class    [(when-not active? :active)]
+   {:class    [(when active? :active)]
     :on-click #(re-frame/dispatch [:category-filter title])}
    title])
 
@@ -78,22 +78,41 @@
     [:div.btn-group.btn-group-sm.mr-3
      (doall
        (for [c categories]
-         ^{:key (hash c)} [btn-category c (get @filter-category c)]))]))
+         ^{:key (hash c)}
+         [btn-category c (get @filter-category c)]))]))
+
+(defn search-bar
+  []
+  (let [state (reagent/atom "")
+        search-fn #(re-frame/dispatch [:search-term @state])]
+    (fn []
+      [:<>
+       [:input.form-control.mr-sm-2
+        {:type      :search :placeholder "Search"
+         :value     (or @state "")
+         :on-change #(let [v (-> % .-target .-value)]
+                       (when (str/blank? v)
+                         (re-frame/dispatch [:search-term ""]))
+                       (reset! state v))}]
+       [:button.btn.btn-outline-success.my-2.my-sm-0
+        {:on-click search-fn}
+        "Search"]])))
 
 (defn nav-bar
   []
-  [:div.navbar.box-shadow.bg-white
-   [:div.container.d-flex.justify-content-between
+  [:header.navbar.box-shadow.navbar-expand-lg.navbar-light.bg-light
+   [:div.d-flex.justify-content-between.w-100
     [:a.navbar-brand.d-flex.align-items-center "Issues"]
-    [:div
-     [filter-category]
-     [:button.navbar-toggler
+    [:form.form-inline.my-2.my-lg-0.py-2.ml-auto
+     [:button.btn.btn-light.mr-3
       {:on-click #(re-frame/dispatch [:show-modal true])}
-      [:span.ion-plus-round]]]]])
+      "Add issue"]
+     [filter-category]
+     [search-bar]]]])
 
 (defn dashboard-card [{:keys [id title building category status]}]
   [:div.card.mb-4.shadow-sm.rounded.bg-white
-   {:style {:cursor :grab}
+   {:style       {:cursor :grab}
     :draggable   true
     :onDragStart #(.setData (.-dataTransfer %) "id" id)
     :data-key    id}
@@ -112,8 +131,9 @@
                     (re-frame/dispatch [:change-issue-status id status])))
     :onDragOver #(.preventDefault %)}
    [:h2.sticky-top.bg-white title [:span.badge.badge-light (count cards)]]
-   (for [{:keys [id] :as card} cards]
-     ^{:key id} [dashboard-card card])])
+   (doall
+     (for [{:keys [id] :as card} cards]
+       ^{:key id} [dashboard-card card]))])
 
 (defn app
   []
