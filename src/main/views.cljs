@@ -103,7 +103,7 @@
   [:header.navbar.box-shadow.navbar-expand-lg.navbar-light.bg-light
    [:div.d-flex.justify-content-between.w-100
     [:a.navbar-brand.d-flex.align-items-center "Issues"]
-    [:form.form-inline.my-2.my-lg-0.py-2.ml-auto
+    [:div.form-inline.my-2.my-lg-0.py-2.ml-auto
      [:button.btn.btn-light.mr-3
       {:on-click #(re-frame/dispatch [:show-modal true])}
       "Add issue"]
