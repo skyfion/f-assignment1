@@ -1,6 +1,5 @@
 (ns views
   (:require [re-frame.core :as re-frame]
-            [clojure.pprint :as pp]
             [clojure.string :as str]
             [reagent.core :as reagent]))
 
@@ -47,20 +46,18 @@
           [:button.close {:on-click close-fn}
            [:span "×"]]]
          [:div.modal-body
-          [:form
-           [input-form-group "Title" (reagent/cursor model [:title])]
-           [input-form-group "Description" (reagent/cursor model [:description])]
-           [input-form-group "Building" (reagent/cursor model [:building])]
-           ; category
-           [select-form-group "Category" categories
-            (reagent/cursor model [:category])]]]
+          [input-form-group "Title" (reagent/cursor model [:title])]
+          [input-form-group "Description" (reagent/cursor model [:description])]
+          [input-form-group "Building" (reagent/cursor model [:building])]
+          ; category
+          [select-form-group "Category" categories
+           (reagent/cursor model [:category])]]
          [:div.modal-footer
           [:button.btn.btn-secondary
            {:on-click close-fn}
            "Close"]
           [:button.btn.btn-primary
-           {:on-submit #(.preventDefault %)
-            :on-click  (fn []
+           {:on-click  (fn []
                          (re-frame/dispatch [:add-issue @model])
                          (close-fn))}
            "Add"]]]]])))
